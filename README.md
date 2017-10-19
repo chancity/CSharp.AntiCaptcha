@@ -2,7 +2,7 @@
 C# AntiCaptcha library
 
 
-```
+```csharp
 //Change software id
 AntiCaptchaGlobals.SoftId = 3432;
 
