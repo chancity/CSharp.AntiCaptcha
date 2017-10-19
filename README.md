@@ -13,7 +13,10 @@ AntiCaptchaGlobals.CaptchaRetryLimit = 10;
 AntiCaptchaLoadBalancer.AddKey(new AntiCaptchaKey("your anti captcha key"));
 AntiCaptchaLoadBalancer.AddKey(new AntiCaptchaKey("your anti captcha key"));
 
-//Get a valid key from the pool
+//get key from pool
+var keyFromPool = AntiCaptchaLoadBalancer.GetValidAntiCaptchaKey()
+
+//create key
 var key = new AntiCaptchaKey("your anti captcha key");
 
 //View balance
