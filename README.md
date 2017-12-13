@@ -3,9 +3,6 @@ C# AntiCaptcha library
 
 
 ```csharp
-//Change software id
-AntiCaptchaGlobals.SoftId = 3432;
-
 //Change solution use limit
 AntiCaptchaGlobals.CaptchaRetryLimit = 10;
 
