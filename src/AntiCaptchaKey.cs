@@ -21,7 +21,7 @@ namespace AntiCaptcha
         private readonly object _taskLockObject;
         public string ClientKey { get; }
         [JsonIgnore]
-        public bool IsReady => AntiCaptchaBalance.Balance > 0 && AntiCaptchaQueueStats.Waiting > 10;
+        public bool IsReady => AntiCaptchaBalance.Balance > 0 && AntiCaptchaQueueStats.Waiting > 0 && AntiCaptchaQueueStats.Bid <= 0.003;
         public GetBalanceResponse AntiCaptchaBalance { get; private set; }
        
         [JsonIgnore]

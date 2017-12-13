@@ -41,6 +41,7 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerRefresh = new System.Windows.Forms.Timer(this.components);
+            this.olvColumnIsReady = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             ((System.ComponentModel.ISupportInitialize)(this.fastObjectListViewCaptchaKeys)).BeginInit();
             this.contextMenuStripCaptcha.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +49,7 @@
             // fastObjectListViewCaptchaKeys
             // 
             this.fastObjectListViewCaptchaKeys.AllColumns.Add(this.olvColumnKey);
+            this.fastObjectListViewCaptchaKeys.AllColumns.Add(this.olvColumnIsReady);
             this.fastObjectListViewCaptchaKeys.AllColumns.Add(this.olvColumnBalance);
             this.fastObjectListViewCaptchaKeys.AllColumns.Add(this.olvColumnQueued);
             this.fastObjectListViewCaptchaKeys.AllColumns.Add(this.olvColumnTotalSolved);
@@ -57,6 +59,7 @@
             this.fastObjectListViewCaptchaKeys.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.fastObjectListViewCaptchaKeys.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.olvColumnKey,
+            this.olvColumnIsReady,
             this.olvColumnBalance,
             this.olvColumnQueued,
             this.olvColumnTotalSolved,
@@ -82,40 +85,47 @@
             // olvColumnKey
             // 
             this.olvColumnKey.AspectName = "ClientKey";
+            this.olvColumnKey.CellPadding = null;
             this.olvColumnKey.Text = "Key";
             this.olvColumnKey.Width = 250;
             // 
             // olvColumnBalance
             // 
             this.olvColumnBalance.AspectName = "AntiCaptchaBalance.Balance";
+            this.olvColumnBalance.CellPadding = null;
             this.olvColumnBalance.Text = "Balance";
             this.olvColumnBalance.Width = 65;
             // 
             // olvColumnQueued
             // 
             this.olvColumnQueued.AspectName = "QueuedCount";
+            this.olvColumnQueued.CellPadding = null;
             this.olvColumnQueued.Text = "Currently Queued";
             this.olvColumnQueued.Width = 115;
             // 
             // olvColumnTotalSolved
             // 
             this.olvColumnTotalSolved.AspectName = "TotalCount";
+            this.olvColumnTotalSolved.CellPadding = null;
             this.olvColumnTotalSolved.Text = "Total Queued";
             this.olvColumnTotalSolved.Width = 100;
             // 
             // olvColumnBid
             // 
             this.olvColumnBid.AspectName = "AntiCaptchaQueueStats.Bid";
+            this.olvColumnBid.CellPadding = null;
             this.olvColumnBid.Text = "Bid";
             // 
             // olvColumnSpeed
             // 
             this.olvColumnSpeed.AspectName = "AntiCaptchaQueueStats.Speed";
+            this.olvColumnSpeed.CellPadding = null;
             this.olvColumnSpeed.Text = "Speed";
             // 
             // olvColumnLoad
             // 
             this.olvColumnLoad.AspectName = "AntiCaptchaQueueStats.ToStringLoad";
+            this.olvColumnLoad.CellPadding = null;
             this.olvColumnLoad.FillsFreeSpace = true;
             this.olvColumnLoad.Text = "Load";
             this.olvColumnLoad.Width = 88;
@@ -126,19 +136,19 @@
             this.addToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.contextMenuStripCaptcha.Name = "contextMenuStripCaptcha";
-            this.contextMenuStripCaptcha.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStripCaptcha.Size = new System.Drawing.Size(118, 48);
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
@@ -147,6 +157,12 @@
             this.timerRefresh.Enabled = true;
             this.timerRefresh.Interval = 1000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
+            // 
+            // olvColumnIsReady
+            // 
+            this.olvColumnIsReady.AspectName = "IsReady";
+            this.olvColumnIsReady.CellPadding = null;
+            this.olvColumnIsReady.Text = "IsReady";
             // 
             // CaptchaListView
             // 
@@ -176,5 +192,6 @@
         private BrightIdeasSoftware.OLVColumn olvColumnLoad;
         private BrightIdeasSoftware.OLVColumn olvColumnBid;
         private BrightIdeasSoftware.OLVColumn olvColumnSpeed;
+        private BrightIdeasSoftware.OLVColumn olvColumnIsReady;
     }
 }

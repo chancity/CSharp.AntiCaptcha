@@ -11,14 +11,14 @@ namespace AntiCaptcha.GetQueueStats
         [JsonProperty("waiting")]
         public int Waiting {
             get => _waiting;
-            private set => _waiting = Interlocked.Exchange(ref _waiting, value);
+            private set => _waiting = value;
         }
 
         [JsonProperty("load")]
         public double Load { get; private set; }
 
         [JsonProperty("bid")]
-        public string Bid { get; private set; }
+        public double Bid { get; private set; }
 
         [JsonProperty("speed")]
         public double Speed { get; private set; }
