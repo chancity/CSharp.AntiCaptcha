@@ -35,7 +35,7 @@ namespace AntiCaptcha
                 {QueueIdEnum.RecaptchaNoCaptcha, null },
             };
    
-            _Qtimer = new Timer(5000);
+            _Qtimer = new Timer(1000);
             _Qtimer.Elapsed += QtimerOnElapsed;
             _Qtimer.Enabled = true;
         }

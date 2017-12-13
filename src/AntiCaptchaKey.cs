@@ -21,7 +21,7 @@ namespace AntiCaptcha
         private readonly object _taskLockObject;
         public string ClientKey { get; }
         [JsonIgnore]
-        public bool IsReady => AntiCaptchaBalance.Balance > 0;
+        public bool IsReady => AntiCaptchaBalance.Balance > 0 && AntiCaptchaQueueStats.Waiting > 10;
         public GetBalanceResponse AntiCaptchaBalance { get; private set; }
        
         [JsonIgnore]
@@ -69,7 +69,7 @@ namespace AntiCaptcha
             
             _taskLockObject = new object();
             _tasks = new HashSet<CreateTaskResponse>();
-            _timer = new Timer(5000);
+            _timer = new Timer(1000);
             _timer.Elapsed += _timer_Elapsed;
             _timer.Enabled = true;
             _timer_Elapsed(null, null);
@@ -95,13 +95,14 @@ namespace AntiCaptcha
 
         public async Task<GetTaskResponse> GetSolvedCaptcha(ICreateTask createTask)
         {
+            AntiCaptchaQueueStats.DecrementWaiting();
+
             var createTaskResponse = await CreateCaptchaTask(this, createTask);
 
             lock (_taskLockObject)
-            {
                 _tasks.Add(createTaskResponse);
 
-            }
+            
 
             if (createTaskResponse.ErrorId > 0)
             {
