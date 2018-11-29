@@ -84,7 +84,7 @@ namespace AntiCaptcha
                 ret = await key.GetSolvedCaptcha(task);
             }
 
-            if (ret.UsedCount > 10)
+            if (ret.UsedCount > AntiCaptchaGlobals.CaptchaRetryLimit)
             {
                 var key = GetValidAntiCaptchaKey();
                 ret = await key.GetSolvedCaptcha(task);
