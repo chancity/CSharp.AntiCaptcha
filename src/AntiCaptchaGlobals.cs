@@ -27,17 +27,17 @@ namespace AntiCaptcha
             SoftId = 865;
             CaptchaRetryLimit = 10;
 
-            //QueueStatsDictionary = new Dictionary<QueueIdEnum, GetQueueStatsResponse>()
-            //{
-            //    {QueueIdEnum.ImageToTextEnglish, null },
-            //    {QueueIdEnum.ImageToTextRussian, null },
-            //    {QueueIdEnum.RecaptchaProxyless, null },
-            //    {QueueIdEnum.RecaptchaNoCaptcha, null },
-            //};
+            QueueStatsDictionary = new Dictionary<QueueIdEnum, GetQueueStatsResponse>()
+            {
+                {QueueIdEnum.ImageToTextEnglish, null },
+                {QueueIdEnum.ImageToTextRussian, null },
+                {QueueIdEnum.RecaptchaProxyless, null },
+                {QueueIdEnum.RecaptchaNoCaptcha, null },
+            };
 
-            //_Qtimer = new Timer(1000);
-            //_Qtimer.Elapsed += QtimerOnElapsed;
-            //_Qtimer.Enabled = true;
+            _Qtimer = new Timer(1000);
+            _Qtimer.Elapsed += QtimerOnElapsed;
+            _Qtimer.Enabled = true;
         }
 
         public static GetQueueStatsResponse GetStatsForSelectedQueue()

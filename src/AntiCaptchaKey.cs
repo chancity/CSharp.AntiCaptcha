@@ -1,16 +1,14 @@
-﻿
-using System;
+﻿using AntiCaptcha.CreateTask;
+using AntiCaptcha.GetBalance;
+using AntiCaptcha.GetQueueStats;
+using AntiCaptcha.GetTask;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using AntiCaptcha.CreateTask;
-using AntiCaptcha.GetBalance;
-using AntiCaptcha.GetQueueStats;
-using AntiCaptcha.GetTask;
-using Newtonsoft.Json;
 
 namespace AntiCaptcha
 {
@@ -23,13 +21,14 @@ namespace AntiCaptcha
         [JsonIgnore]
         public bool IsReady => AntiCaptchaBalance.Balance > 0 && AntiCaptchaQueueStats.Waiting > 0 && AntiCaptchaQueueStats.Bid <= 0.003;
         public GetBalanceResponse AntiCaptchaBalance { get; private set; }
-       
+
         [JsonIgnore]
         public GetQueueStatsResponse AntiCaptchaQueueStats => AntiCaptchaGlobals.GetStatsForSelectedQueue();
 
         [JsonIgnore]
-        public CreateTaskResponse[] Tasks {
-           
+        public CreateTaskResponse[] Tasks
+        {
+
             get
             {
                 lock (_taskLockObject)
@@ -66,7 +65,7 @@ namespace AntiCaptcha
         public AntiCaptchaKey(string clientKey)
         {
             ClientKey = clientKey;
-            
+
             _taskLockObject = new object();
             _tasks = new HashSet<CreateTaskResponse>();
             _timer = new Timer(1000);
@@ -102,7 +101,7 @@ namespace AntiCaptcha
             lock (_taskLockObject)
                 _tasks.Add(createTaskResponse);
 
-            
+
 
             if (createTaskResponse.ErrorId > 0)
             {
@@ -158,7 +157,7 @@ namespace AntiCaptcha
                     }
                 }
             }
-            catch 
+            catch
             {
                 return null;
             }
@@ -189,7 +188,7 @@ namespace AntiCaptcha
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((AntiCaptchaKey) obj);
+            return obj.GetType() == GetType() && Equals((AntiCaptchaKey)obj);
         }
 
         public override int GetHashCode()
