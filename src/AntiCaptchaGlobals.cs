@@ -1,11 +1,11 @@
-﻿using System;
+﻿using AntiCaptcha.GetQueueStats;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
-using AntiCaptcha.GetQueueStats;
-using Newtonsoft.Json;
 
 namespace AntiCaptcha
 {
@@ -34,7 +34,7 @@ namespace AntiCaptcha
                 {QueueIdEnum.RecaptchaProxyless, null },
                 {QueueIdEnum.RecaptchaNoCaptcha, null },
             };
-   
+
             _Qtimer = new Timer(1000);
             _Qtimer.Elapsed += QtimerOnElapsed;
             _Qtimer.Enabled = true;
@@ -42,7 +42,7 @@ namespace AntiCaptcha
 
         public static GetQueueStatsResponse GetStatsForSelectedQueue()
         {
-            lock(QueueStatsDictionary)
+            lock (QueueStatsDictionary)
                 return QueueStatsDictionary.ContainsKey(SelectedQueueStats) ? QueueStatsDictionary[SelectedQueueStats] : null;
         }
 

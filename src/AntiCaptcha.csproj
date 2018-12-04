@@ -53,9 +53,11 @@
     <Compile Include="AntiCaptchaException.cs" />
     <Compile Include="AntiCaptchaGlobals.cs" />
     <Compile Include="AntiCaptchaLoadBalancer.cs" />
+    <Compile Include="CreateTask\FunCaptchaTask.cs" />
     <Compile Include="CreateTask\ImageToTextTask.cs" />
     <Compile Include="CreateTask\ICreateTask.cs" />
     <Compile Include="CreateTask\NoCaptchaTask.cs" />
+    <Compile Include="CreateTask\ProxifiedCreateTask.cs" />
     <Compile Include="CreateTask\Request.cs" />
     <Compile Include="CreateTask\Response.cs" />
     <Compile Include="CreateTask\NoCaptchaTaskProxyless.cs" />
