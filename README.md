@@ -5,6 +5,7 @@ C# AntiCaptcha library
 ```csharp
 //Change solution use limit
 AntiCaptchaGlobals.CaptchaRetryLimit = 10;
+AntiCaptchaGlobals.SoftId = 913;
 
 //Add a key, add as many as you'd like the load balancer will roundrobin between keys
 AntiCaptchaLoadBalancer.AddKey(new AntiCaptchaKey("your anti captcha key"));
