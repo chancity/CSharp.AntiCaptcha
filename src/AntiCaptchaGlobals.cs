@@ -24,7 +24,7 @@ namespace AntiCaptcha
         static AntiCaptchaGlobals()
         {
             HttpClient = new HttpClient();
-            SoftId = 865;
+            SoftId = 913;
             CaptchaRetryLimit = 10;
 
             QueueStatsDictionary = new Dictionary<QueueIdEnum, GetQueueStatsResponse>()
