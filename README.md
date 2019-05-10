@@ -1,4 +1,4 @@
-# CSharp-AntiCaptcha
+# CSharp.AntiCaptcha
 C# AntiCaptcha library
 
 
