@@ -3,13 +3,13 @@ using Newtonsoft.Json;
 
 namespace AntiCaptcha.GetQueueStats
 {
-
     public class GetQueueStatsResponse
     {
-        private int _waiting = 0;
+        private int _waiting;
 
         [JsonProperty("waiting")]
-        public int Waiting {
+        public int Waiting
+        {
             get => _waiting;
             private set => _waiting = value;
         }
@@ -34,7 +34,4 @@ namespace AntiCaptcha.GetQueueStats
             Interlocked.Decrement(ref _waiting);
         }
     }
-
-
 }
-

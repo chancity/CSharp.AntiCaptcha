@@ -2,7 +2,6 @@
 
 namespace AntiCaptcha.GetTask
 {
-
     public class GetTaskRequest
     {
         [JsonProperty("clientKey")]
@@ -10,6 +9,7 @@ namespace AntiCaptcha.GetTask
 
         [JsonProperty("taskId")]
         public int TaskId { get; }
+
         [JsonProperty("isExtended")]
         public bool IsExtended { get; }
 
@@ -21,4 +21,3 @@ namespace AntiCaptcha.GetTask
         }
     }
 }
-

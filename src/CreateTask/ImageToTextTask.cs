@@ -2,31 +2,30 @@
 
 namespace AntiCaptcha.CreateTask
 {
-
     public class ImageToTextTask : ICreateTask
     {
-        [JsonProperty("type")]
-        public string Type { get; set; } = "ImageToTextTask";
-
         [JsonProperty("body")]
         public string BodyBase64 { get; set; } = "";
 
         [JsonProperty("phrase")]
-        public bool Phrase { get; set; } = false;
+        public bool Phrase { get; set; }
 
         [JsonProperty("case")]
-        public bool Case { get; set; } = false;
+        public bool Case { get; set; }
 
         [JsonProperty("numeric")]
-        public bool Numeric { get; set; } = false;
+        public bool Numeric { get; set; }
 
         [JsonProperty("math")]
-        public int Math { get; set; } = 0;
-        [JsonProperty("minLength")]
-        public int MinLength {  get; set; } = 0;
-        [JsonProperty("maxLength")]
-        public int MaxLength {  get; set; } = 0;
+        public int Math { get; set; }
 
+        [JsonProperty("minLength")]
+        public int MinLength { get; set; }
+
+        [JsonProperty("maxLength")]
+        public int MaxLength { get; set; }
+
+        [JsonProperty("type")]
+        public string Type { get; set; } = "ImageToTextTask";
     }
 }
-

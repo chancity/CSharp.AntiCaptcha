@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AntiCaptcha.GetQueueStats
+﻿namespace AntiCaptcha.GetQueueStats
 {
     public enum QueueIdEnum
     {
@@ -14,4 +8,3 @@ namespace AntiCaptcha.GetQueueStats
         RecaptchaProxyless = 6
     }
 }
-

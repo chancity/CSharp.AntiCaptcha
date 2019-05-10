@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 
 namespace AntiCaptcha.CreateTask
 {
-
     public class CreateTaskResponse
     {
         [JsonProperty("errorId")]
@@ -27,9 +26,21 @@ namespace AntiCaptcha.CreateTask
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
             return Equals((CreateTaskResponse) obj);
         }
 

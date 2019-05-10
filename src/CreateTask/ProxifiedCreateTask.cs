@@ -4,28 +4,6 @@ namespace AntiCaptcha.CreateTask
 {
     public abstract class ProxifiedCreateTask : ICreateTask
     {
-        public ProxifiedCreateTask(string type, string websiteUrl, string websiteKey,
-            string proxyType,
-            string proxyAddress,
-            int proxyPort,
-            string proxyLogin = null,
-            string proxyPassword = null,
-            string userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
-        {
-            Type = type;
-            WebsiteUrl = websiteUrl;
-            WebsiteKey = websiteKey;
-            ProxyType = proxyType;
-            ProxyAddress = proxyAddress;
-            ProxyPort = proxyPort;
-            ProxyLogin = proxyLogin;
-            ProxyPassword = proxyPassword;
-            UserAgent = userAgent;
-        }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
         [JsonProperty("websiteURL")]
         public string WebsiteUrl { get; set; }
 
@@ -50,5 +28,27 @@ namespace AntiCaptcha.CreateTask
         [JsonProperty("userAgent")]
         public string UserAgent { get; set; }
 
+        public ProxifiedCreateTask(string type, string websiteUrl, string websiteKey,
+            string proxyType,
+            string proxyAddress,
+            int proxyPort,
+            string proxyLogin = null,
+            string proxyPassword = null,
+            string userAgent =
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36")
+        {
+            Type = type;
+            WebsiteUrl = websiteUrl;
+            WebsiteKey = websiteKey;
+            ProxyType = proxyType;
+            ProxyAddress = proxyAddress;
+            ProxyPort = proxyPort;
+            ProxyLogin = proxyLogin;
+            ProxyPassword = proxyPassword;
+            UserAgent = userAgent;
+        }
+
+        [JsonProperty("type")]
+        public string Type { get; set; }
     }
 }

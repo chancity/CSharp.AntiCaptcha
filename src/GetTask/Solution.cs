@@ -2,7 +2,6 @@
 
 namespace AntiCaptcha.GetTask
 {
-
     public class Solution
     {
         [JsonProperty("gRecaptchaResponse")]
@@ -21,4 +20,3 @@ namespace AntiCaptcha.GetTask
         public string Token { get; private set; }
     }
 }
-

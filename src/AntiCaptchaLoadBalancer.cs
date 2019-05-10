@@ -19,10 +19,12 @@ namespace AntiCaptcha
             get
             {
                 lock (CaptchaKeys)
+                {
                     return CaptchaKeys.Sum(k => k.TotalCount - k.QueuedCount);
+                }
             }
         }
-    
+
         static AntiCaptchaLoadBalancer()
         {
             CaptchaKeys = new HashSet<AntiCaptchaKey>();
@@ -37,6 +39,7 @@ namespace AntiCaptcha
                 return CaptchaKeys.Add(antiCaptchaKey);
             }
         }
+
         public static bool RemoveKey(AntiCaptchaKey antiCaptchaKey)
         {
             lock (CaptchaKeys)
@@ -44,6 +47,7 @@ namespace AntiCaptcha
                 return CaptchaKeys.Remove(antiCaptchaKey);
             }
         }
+
         public static AntiCaptchaKey GetValidAntiCaptchaKey()
         {
             List<AntiCaptchaKey> availableAntiCaptchaKey;
@@ -58,7 +62,7 @@ namespace AntiCaptcha
                 throw new AntiCaptchaException("No valid Anti-Captca keys configured.");
             }
 
-            var ret = availableAntiCaptchaKey[GetRandomNumber(0, availableAntiCaptchaKey.Count)];
+            AntiCaptchaKey ret = availableAntiCaptchaKey[GetRandomNumber(0, availableAntiCaptchaKey.Count)];
 
             if (ret == null)
             {
@@ -71,22 +75,25 @@ namespace AntiCaptcha
 
         public static void EnqueueResponse(GetTaskResponse response)
         {
-            if(!Queue.Contains(response))
+            if (!Queue.Contains(response))
+            {
                 Queue.Enqueue(response);
+            }
         }
+
         public static async Task<GetTaskResponse> GetSolvedCaptcha(ICreateTask task)
         {
             GetTaskResponse ret;
 
             if (!Queue.TryDequeue(out ret))
             {
-                var key = GetValidAntiCaptchaKey();
+                AntiCaptchaKey key = GetValidAntiCaptchaKey();
                 ret = await key.GetSolvedCaptcha(task);
             }
 
             if (ret.UsedCount > AntiCaptchaGlobals.CaptchaRetryLimit)
             {
-                var key = GetValidAntiCaptchaKey();
+                AntiCaptchaKey key = GetValidAntiCaptchaKey();
                 ret = await key.GetSolvedCaptcha(task);
             }
 
@@ -94,12 +101,13 @@ namespace AntiCaptcha
             return ret;
         }
 
-    
 
         private static int GetRandomNumber(int min, int max)
         {
             lock (GetRandom)
+            {
                 return GetRandom.Next(min, max);
+            }
         }
     }
 }

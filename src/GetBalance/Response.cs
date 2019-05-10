@@ -16,7 +16,4 @@ namespace AntiCaptcha.GetBalance
         [JsonProperty("balance")]
         public float Balance { get; private set; }
     }
-
-
 }
-

@@ -4,6 +4,12 @@ namespace AntiCaptcha.CreateTask
 {
     public class NoCaptchaTaskProxyless : ICreateTask
     {
+        [JsonProperty("websiteURL")]
+        public string WebsiteUrl { get; set; }
+
+        [JsonProperty("websiteKey")]
+        public string WebsiteKey { get; set; }
+
         public NoCaptchaTaskProxyless(string websiteUrl, string websiteKey)
         {
             WebsiteUrl = websiteUrl;
@@ -12,13 +18,5 @@ namespace AntiCaptcha.CreateTask
 
         [JsonProperty("type")]
         public string Type { get; set; } = "NoCaptchaTaskProxyless";
-
-        [JsonProperty("websiteURL")]
-        public string WebsiteUrl { get; set; }
-
-        [JsonProperty("websiteKey")]
-        public string WebsiteKey { get; set; }
-
     }
 }
-
